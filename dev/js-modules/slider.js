@@ -1,4 +1,21 @@
 (function() {
+    var data = [
+        {
+            content: "Это отзыв номер 1"
+        },
+        {
+            content: "Это отзыв номер 2"
+        },
+        {
+            content: "Это отзыв номер 3"
+        },
+        {
+            content: "Это отзыв номер 4"
+        },
+        {
+            content: "Это отзыв номер 5"
+        }
+    ];
     var active = document.querySelector(".m-slide--active") || document.querySelector(".m-slide--initial-active");
     var next = document.querySelector(".m-slide--next");
 
