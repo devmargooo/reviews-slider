@@ -1,0 +1,67 @@
+.m-slide{
+  position: absolute;
+  top: 0;
+  display: inline-block;
+  float: left;
+  width: 40rem;
+  height: 20rem;
+  background: red;
+   &:nth-child(3n-1){
+     left: 40rem;
+     background: blue;
+  }
+  &:nth-child(3n){
+    left: 80rem;
+    background: greenyellow;
+  }
+}
+
+
+
+@keyframes appearToLeft {
+  0% {left: 40rem;}
+  5% {left: 38rem;}
+  10% {left: 36rem;}
+  15% {left: 34rem;}
+  20% {left: 32rem;}
+  25% {left: 30rem;}
+  30% {left: 28rem;}
+  35% {left: 26rem;}
+  40% {left: 24rem;}
+  45% {left: 22rem;}
+  50% {left: 20rem;}
+  55% {left: 18rem;}
+  60% {left: 16rem;}
+  65% {left: 14rem;}
+  70% {left: 12rem;}
+  75% {left: 10rem;}
+  80% {left: 8rem;}
+  85% {left: 6rem;}
+  90% {left: 4rem;}
+  95% {left: 2rem;}
+  100% {left: 0;}
+}
+
+@keyframes disappearToLeft {
+  0% {left: 0;}
+  5% {left: -2rem;}
+  10% {left: -4rem;}
+  15% {left: -6rem;}
+  20% {left: -8rem;}
+  25% {left: -10rem;}
+  30% {left: -12rem;}
+  35% {left: -14rem;}
+  40% {left: -16rem;}
+  45% {left: -18rem;}
+  50% {left: -20rem;}
+  55% {left: -22rem;}
+  60% {left: -24rem;}
+  65% {left: -26rem;}
+  70% {left: -28rem;}
+  75% {left: -30rem;}
+  80% {left: -32rem;}
+  85% {left: -34rem;}
+  90% {left: -36rem;}
+  95% {left: -38rem;}
+  100% {left: -38rem;}
+}
