@@ -34,29 +34,32 @@
         next.classList.add("m-slide--active");
     }
 
-    function moveLeft(slide) {
-        var initialLeft =
-            //var timer = setInterval(function () {
-
-                        slide.style.left = parseInt(slide.style.left) - 1 + 'rem';
-        //}, 2);
-    }
-
-    var arrowLeft = document.querySelector(".arrow--left");
-    arrowLeft.onclick = slideToLeft;
-
     function Slider() {
         var slides = [];
-        var slide = new Slide();
-        slides.push(slide);
-        console.log(slides[0]);
+        for (var i = 0; i < data.length; i++){
+            var slide = new Slide(data[i]);
+            slides.push(slide);
+        }
+        this.render = function(){
+            var template = document.querySelector(".m-slider-template");
+            return document.importNode(template.content, true);
+        }
     }
 
     function Slide(data) {
         var template = document.querySelector(".m-slide-template");
+        var reviewArea = template.content.querySelector(".m-slide--inner");
+        reviewArea.textContent = data.content;
         return document.importNode(template.content, true);
     }
 
     var slider = new Slider();
+    var sliderBlock = slider.render();
+    var bodyFirstChild = document.body.children[0];
+    document.body.insertBefore(sliderBlock, bodyFirstChild);
+
+
+    var arrowLeft = document.querySelector(".arrow--left");
+    arrowLeft.onclick = slideToLeft;
     
 })();
