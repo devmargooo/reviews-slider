@@ -1,13 +1,13 @@
 .m-slider{
-  width: 40rem;
+  width: $slide-width-desktop;
   position: relative;
   margin: 20rem auto 0;
 }
 
 .m-slider--inner{
   position: relative;
-  width: 40rem;
-  height: 20rem;
+  width: $slide-width-desktop;
+  height: $slide-height-desktop;
   border: 4px solid black;
   overflow: hidden;
 }

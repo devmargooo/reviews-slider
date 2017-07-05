@@ -2,15 +2,15 @@
   position: absolute;
   top: 0;
   display: inline-block;
-  width: 40rem;
-  height: 20rem;
+  width: $slide-width-desktop;
+  height: $slide-height-desktop;
   background: red;
    &:nth-child(3n-1){
-     left: 40rem;
+     left: $slide-width-desktop;
      background: blue;
   }
   &:nth-child(3n){
-    left: 80rem;
+    left: 2*$slide-width-desktop;
     background: greenyellow;
   }
 }
@@ -30,7 +30,7 @@
 }
 
 .m-slide.m-slide--next{
-  left: 40rem;
+  left: $slide-width-desktop;
 }
 
 @keyframes appearToLeft {
