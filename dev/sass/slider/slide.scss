@@ -16,7 +16,15 @@
   }
 }
 
+.m-slide--prev{
+  left: -40rem;
+  animation: disappearToLeft 0.8s;
+}
 
+.m-slide--active{
+  left: 0;
+  animation: appearToLeft 0.8s;
+}
 
 @keyframes appearToLeft {
   0% {left: 40rem;}
@@ -63,5 +71,5 @@
   85% {left: -34rem;}
   90% {left: -36rem;}
   95% {left: -38rem;}
-  100% {left: -38rem;}
+  100% {left: -40rem;}
 }

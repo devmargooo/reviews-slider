@@ -1,0 +1,17 @@
+.arrow{
+  position: absolute;
+  top: 50%;
+  color: black;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.arrow--left{
+  @extend .arrow;
+  left: -5rem;
+}
+
+.arrow--right{
+  @extend .arrow;
+  right: -5rem;
+}
