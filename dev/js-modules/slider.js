@@ -28,8 +28,18 @@
     var arrowLeft = document.querySelector(".arrow--left");
     arrowLeft.onclick = slideToLeft;
 
-    function Slider(data) {
-
+    function Slider() {
+        var slides = [];
+        var slide = new Slide();
+        slides.push(slide);
+        console.log(slides[0]);
     }
+
+    function Slide(data) {
+        var template = document.querySelector(".m-slide-template");
+        return document.importNode(template.content, true);
+    }
+
+    var slider = new Slider();
     
 })();
