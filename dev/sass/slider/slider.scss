@@ -5,6 +5,7 @@
 }
 
 .m-slider--inner{
+  box-sizing: content-box;
   position: relative;
   width: $slide-width-desktop;
   height: $slide-height-desktop;
