@@ -2,7 +2,6 @@
   position: absolute;
   top: 0;
   display: inline-block;
-  float: left;
   width: 40rem;
   height: 20rem;
   background: red;
@@ -21,9 +20,17 @@
   animation: disappearToLeft 0.8s;
 }
 
-.m-slide--active{
+.m-slide--initial-active{
   left: 0;
+}
+
+.m-slide.m-slide--active{
+  @extend .m-slide--initial-active;
   animation: appearToLeft 0.8s;
+}
+
+.m-slide.m-slide--next{
+  left: 40rem;
 }
 
 @keyframes appearToLeft {

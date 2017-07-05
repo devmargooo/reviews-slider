@@ -1,6 +1,16 @@
+- var initial = false;
+- var second = false;
+- var third = false;
+
 .m-slider
     .m-slider--inner
+        - initial = true;
         include slide
+        - initial = false;
+        - second = true;
         include slide
+        - second = false;
+        - third = true;
         include slide
+        - third = false;
     include arrows
