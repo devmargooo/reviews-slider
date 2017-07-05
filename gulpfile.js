@@ -52,8 +52,8 @@ gulp.task('scripts', function() {
         .pipe(size({
             showFiles: true
         }))
-        .pipe(concat('main.min.js'))
-        .pipe(uglify())
+        //.pipe(concat('main.min.js'))
+        //.pipe(uglify())
         .pipe(size({
             showFiles: true
         }))
