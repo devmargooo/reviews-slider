@@ -50,8 +50,9 @@
             }
             var slide = slides[index];
             slide.classList.add("r-slide--prev");
-            var active = parent.querySelector(".r-slide--active") || parent.querySelector(".r-slide--initial-active");
-            console.log(active);
+            slide.classList.remove("r-slide--next");
+            slide.classList.remove("r-slide--next--toright");
+            var active = parent.querySelector(".r-slide--active") || parent.querySelector(".r-slide--active--toright") || parent.querySelector(".r-slide--initial-active");
             parent.insertBefore(slide, active);
             return false;
         }
@@ -106,8 +107,8 @@
                 console.log("Error: active slide not found");
                 return;
             }
-
             active.classList.add("r-slide--prev");
+
             next.classList.remove("r-slide--next");
             next.classList.add("r-slide--active");
 
@@ -115,9 +116,31 @@
             renderNextSlide(false, activeSlide);
         };
         this.slideToLeft = function () {
-            var active = document.querySelector(".r-slide--active") || document.querySelector(".r-slide--initial-active");
-            var next = document.querySelector(".r-slide--next");
+            var active = document.querySelector(".r-slide--active") || document.querySelector(".r-slide--active--toright") || document.querySelector(".r-slide--initial-active");
+            var next = document.querySelector(".r-slide--next") || document.querySelector(".r-slide--next--toright") ;
             var prev = document.querySelector(".r-slide--prev");
+
+            if (next) {
+                var parent = next.parentNode;
+                parent.removeChild(next);
+            }
+
+            if (active.classList.contains("r-slide--active")) {
+                active.classList.remove("r-slide--active");
+            } else if (active.classList.contains("r-slide--active--toright")) {
+                active.classList.remove("r-slide--active--toright");
+            } else if (active.classList.contains("r-slide--initial-active")) {
+                active.classList.remove("r-slide--initial-active");
+            } else {
+                console.log("Error: active slide not found");
+                return;
+            }
+            active.classList.add("r-slide--next--toright");
+            prev.classList.remove("r-slide--prev");
+            prev.classList.add("r-slide--active--toright");
+
+            activeSlide ? activeSlide = (activeSlide - 1) % slides.length : activeSlide = slides.length - 1;
+            renderPrevSlide(false, activeSlide);
         };
         this.render = function(activeSlide){
             var wrapper = renderWrapper();
@@ -149,5 +172,8 @@
 
     var arrowRight = document.querySelector(".arrow--right");
     arrowRight.onclick = slider.slideToRight;
+
+    var arrowLeft = document.querySelector(".arrow--left");
+    arrowLeft.onclick = slider.slideToLeft;
     
 })();

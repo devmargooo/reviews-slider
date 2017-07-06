@@ -27,9 +27,19 @@
   animation: appearToLeft 0.8s;
 }
 
+.r-slide.r-slide--active--toright{
+  @extend .r-slide--initial-active;
+  animation: appearToRight 0.8s;
+}
+
 .r-slide.r-slide--next{
   display: none;
   left: $slide-width-desktop;
+}
+
+.r-slide.r-slide--next--toright{
+  left: $slide-width-desktop;
+  animation: disappearToRight 0.8s;;
 }
 
 @keyframes appearToLeft {
@@ -77,7 +87,7 @@
   85% {left: -$slide-width-desktop*17/20;}
   90% {left: -$slide-width-desktop*18/20;}
   95% {left: -$slide-width-desktop*19/20;}
-  100% {left: -$slide-width-desktop; display: none;}
+  100% {left: -$slide-width-desktop;}
 }
 
 @keyframes appearToRight {
