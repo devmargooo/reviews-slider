@@ -22,7 +22,7 @@
   left: 0;
 }
 
-.r-slide.r-slide--active{
+.r-slide.r-slide--active--toleft{
   @extend .r-slide--initial-active;
   animation: appearToLeft 0.8s;
 }
@@ -32,7 +32,7 @@
   animation: appearToRight 0.8s;
 }
 
-.r-slide.r-slide--next{
+.r-slide.r-slide--next--toleft{
   display: none;
   left: $slide-width-desktop;
 }
