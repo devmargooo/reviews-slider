@@ -17,22 +17,22 @@
             content: "Это отзыв номер 5"
         }
     ];
-    var active = document.querySelector(".m-slide--active") || document.querySelector(".m-slide--initial-active");
-    var next = document.querySelector(".m-slide--next");
+    var active = document.querySelector(".r-slide--active") || document.querySelector(".r-slide--initial-active");
+    var next = document.querySelector(".r-slide--next");
 
     function slideToLeft() {
-        if (active.classList.contains("m-slide--active")) {
-            active.classList.remove("m-slide--active");
-        } else if (active.classList.contains("m-slide--initial-active")) {
-            active.classList.remove("m-slide--initial-active");
+        if (active.classList.contains("r-slide--active")) {
+            active.classList.remove("r-slide--active");
+        } else if (active.classList.contains("r-slide--initial-active")) {
+            active.classList.remove("r-slide--initial-active");
         } else {
             console.log("Error: active slide not found");
             return;
         }
 
-        active.classList.add("m-slide--prev");
-        next.classList.remove("m-slide--next");
-        next.classList.add("m-slide--active");
+        active.classList.add("r-slide--prev");
+        next.classList.remove("r-slide--next");
+        next.classList.add("r-slide--active");
     }
 
     function Slider() {
@@ -42,7 +42,7 @@
             slides.push(slide);
         }
         function renderWrapper() {
-            var template = document.querySelector(".m-slider-template");
+            var template = document.querySelector(".r-slider-template");
             return document.importNode(template.content, true);
         }
         function renderActiveSlide(activeSlide) {
@@ -57,7 +57,7 @@
         }
         this.render = function(activeSlide){
             var wrapper = renderWrapper();
-            var inner = wrapper.querySelector(".m-slider--inner");
+            var inner = wrapper.querySelector(".r-slider--inner");
 
             var active = renderActiveSlide(activeSlide);
             inner.appendChild(active);
@@ -67,15 +67,18 @@
     }
 
     function renderSlideWrapper() {
-        var template = document.querySelector(".m-slide-template");
+        var template = document.querySelector(".r-slide-template");
         return document.importNode(template.content, true);
     }
 
     function Slide(data) {
-        var wrapper = renderSlideWrapper();
-        var reviewArea = wrapper.querySelector(".m-slide--inner");
-        reviewArea.textContent = data.content;
-        return wrapper;
+        var slide = document.createElement("li");
+        slide.classList.add("r-slide");
+        var inner = document.createElement("div");
+        inner.classList.add("r-slide--inner");
+        inner.textContent = data.content;
+        slide.appendChild(inner);
+        return slide;
     }
 
     var slider = new Slider();

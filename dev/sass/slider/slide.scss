@@ -1,4 +1,4 @@
-.m-slide{
+.r-slide{
   position: absolute;
   top: 0;
   display: inline-block;
@@ -8,30 +8,30 @@
   background: $c-bg;
 }
 
-.m-slide--inner{
+.r-slide--inner{
   background: $c-fg;
   height: 100%;
 }
 
-.m-slide--prev{
+.r-slide--prev{
   left: -$slide-width-desktop;
   animation: disappearToLeft 0.8s;
 }
 
-.m-slide--initial-active{
+.r-slide--initial-active{
   left: 0;
 }
 
-.m-slide.m-slide--active{
-  @extend .m-slide--initial-active;
+.r-slide.r-slide--active{
+  @extend .r-slide--initial-active;
   animation: appearToLeft 0.8s;
 }
 
-.m-slide.m-slide--next{
+.r-slide.r-slide--next{
   left: $slide-width-desktop;
 }
 
-.m-slide.m-slide--prev{
+.r-slide.r-slide--prev{
 
 }
 
