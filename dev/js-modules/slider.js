@@ -86,13 +86,15 @@
             }
             var current = slides[index];
             current.classList.add("r-slide--next");
+            current.classList.remove("r-slide--next--toright");
+            current.classList.remove("r-slide--prev");
             parent.appendChild(current);
             return true;
 
         }
         this.slideToRight = function(){
-            var active = document.querySelector(".r-slide--active") || document.querySelector(".r-slide--initial-active");
-            var next = document.querySelector(".r-slide--next");
+            var active = document.querySelector(".r-slide--active") || document.querySelector(".r-slide--active--toright") || document.querySelector(".r-slide--initial-active");
+            var next = document.querySelector(".r-slide--next") || document.querySelector(".r-slide--next--toright");
             var prev = document.querySelector(".r-slide--prev");
             if (prev) {
                 var parent = prev.parentNode;
@@ -101,6 +103,8 @@
 
             if (active.classList.contains("r-slide--active")) {
                 active.classList.remove("r-slide--active");
+            } else if (active.classList.contains("r-slide--active--toright")) {
+                active.classList.remove("r-slide--active--toright");
             } else if (active.classList.contains("r-slide--initial-active")) {
                 active.classList.remove("r-slide--initial-active");
             } else {
@@ -109,7 +113,7 @@
             }
             active.classList.add("r-slide--prev");
 
-            next.classList.remove("r-slide--next");
+            next.classList.remove("r-slide--next") || next.classList.remove("r-slide--next--toright");
             next.classList.add("r-slide--active");
 
             activeSlide ? activeSlide = (activeSlide + 1) % slides.length : activeSlide = 1;
