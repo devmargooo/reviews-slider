@@ -1,5 +1,6 @@
 (function() {
     var INITIAL_SLIDE = 0;
+    var SLIDER_WIDTH = 1;
     var data = [
         {
             content: "Это отзыв номер 1"
@@ -17,10 +18,11 @@
             content: "Это отзыв номер 5"
         }
     ];
-    var active = document.querySelector(".r-slide--active") || document.querySelector(".r-slide--initial-active");
-    var next = document.querySelector(".r-slide--next");
 
     function slideToLeft() {
+        var active = document.querySelector(".r-slide--active") || document.querySelector(".r-slide--initial-active");
+        var next = document.querySelector(".r-slide--next");
+
         if (active.classList.contains("r-slide--active")) {
             active.classList.remove("r-slide--active");
         } else if (active.classList.contains("r-slide--initial-active")) {
@@ -49,11 +51,22 @@
             if (!activeSlide){
                 activeSlide = INITIAL_SLIDE;
                 var active = slides[activeSlide];
-                console.log(active);
+                active.classList.add("r-slide--initial-active");
             } else {
                 return;
             }
             return active;
+        }
+        function renderNextSlide(activeSlide) {
+            if (!activeSlide){
+                activeSlide = INITIAL_SLIDE;
+                var currentSlide = activeSlide + SLIDER_WIDTH;
+                var current = slides[currentSlide];
+                current.classList.add("r-slide--next");
+                return current;
+            } else {
+                return;
+            }
         }
         this.render = function(activeSlide){
             var wrapper = renderWrapper();
@@ -61,6 +74,9 @@
 
             var active = renderActiveSlide(activeSlide);
             inner.appendChild(active);
+
+            var next = renderNextSlide(activeSlide);
+            inner.appendChild(next);
 
             return wrapper;
         }
