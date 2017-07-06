@@ -19,26 +19,11 @@
         }
     ];
 
-    function slideToLeft() {
-        var active = document.querySelector(".r-slide--active") || document.querySelector(".r-slide--initial-active");
-        var next = document.querySelector(".r-slide--next");
-
-        if (active.classList.contains("r-slide--active")) {
-            active.classList.remove("r-slide--active");
-        } else if (active.classList.contains("r-slide--initial-active")) {
-            active.classList.remove("r-slide--initial-active");
-        } else {
-            console.log("Error: active slide not found");
-            return;
-        }
-
-        active.classList.add("r-slide--prev");
-        next.classList.remove("r-slide--next");
-        next.classList.add("r-slide--active");
-    }
-
-    function Slider() {
+        function Slider() {
         var slides = [];
+        var activeSlide;
+        var self = this;
+        var inner;
         for (var i = 0; i < data.length; i++){
             var slide = new Slide(data[i]);
             slides.push(slide);
@@ -47,46 +32,67 @@
             var template = document.querySelector(".r-slider-template");
             return document.importNode(template.content, true);
         }
-        function renderActiveSlide(activeSlide) {
+        function renderActiveSlide(parent, activeSlide) {
             if (!activeSlide){
                 activeSlide = INITIAL_SLIDE;
                 var active = slides[activeSlide];
                 active.classList.add("r-slide--initial-active");
             } else {
-                return;
+                var active = slides[activeSlide];
+                active.classList.add("r-slide--active");
             }
-            return active;
+            parent.appendChild(active);
+            return true;
         }
-        function renderNextSlide(activeSlide) {
+        function renderNextSlide(parent, activeSlide) {
+            if (!parent){
+                if (inner) {
+                    parent = inner;
+                } else {
+                    console.log("error: can not append next slide, parent not found");
+                }
+            }
             if (!activeSlide){
                 activeSlide = INITIAL_SLIDE;
-                var currentSlide = activeSlide + SLIDER_WIDTH;
-                var current = slides[currentSlide];
-                current.classList.add("r-slide--next");
-                return current;
+            }
+            var currentSlide = activeSlide + SLIDER_WIDTH;
+            var current = slides[currentSlide];
+            current.classList.add("r-slide--next");
+            parent.appendChild(current);
+            return true;
+
+        }
+        this.slideToLeft = function(){
+            var active = document.querySelector(".r-slide--active") || document.querySelector(".r-slide--initial-active");
+            var next = document.querySelector(".r-slide--next");
+
+            if (active.classList.contains("r-slide--active")) {
+                active.classList.remove("r-slide--active");
+            } else if (active.classList.contains("r-slide--initial-active")) {
+                active.classList.remove("r-slide--initial-active");
             } else {
+                console.log("Error: active slide not found");
                 return;
             }
-        }
+
+            active.classList.add("r-slide--prev");
+            next.classList.remove("r-slide--next");
+            next.classList.add("r-slide--active");
+
+            activeSlide ? activeSlide++ : activeSlide = 1;
+            renderNextSlide(false, activeSlide);
+        };
         this.render = function(activeSlide){
             var wrapper = renderWrapper();
-            var inner = wrapper.querySelector(".r-slider--inner");
+            inner = wrapper.querySelector(".r-slider--inner");
 
-            var active = renderActiveSlide(activeSlide);
-            inner.appendChild(active);
-
-            var next = renderNextSlide(activeSlide);
-            inner.appendChild(next);
+            renderActiveSlide(inner, activeSlide);
+            renderNextSlide(inner, activeSlide);
 
             return wrapper;
         }
     }
-
-    function renderSlideWrapper() {
-        var template = document.querySelector(".r-slide-template");
-        return document.importNode(template.content, true);
-    }
-
+    
     function Slide(data) {
         var slide = document.createElement("li");
         slide.classList.add("r-slide");
@@ -104,6 +110,6 @@
 
 
     var arrowLeft = document.querySelector(".arrow--left");
-    arrowLeft.onclick = slideToLeft;
+    arrowLeft.onclick = slider.slideToLeft;
     
 })();
