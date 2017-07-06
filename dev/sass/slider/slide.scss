@@ -28,11 +28,8 @@
 }
 
 .r-slide.r-slide--next{
+  display: none;
   left: $slide-width-desktop;
-}
-
-.r-slide.r-slide--prev{
-
 }
 
 @keyframes appearToLeft {
@@ -80,5 +77,5 @@
   85% {left: -$slide-width-desktop*17/20;}
   90% {left: -$slide-width-desktop*18/20;}
   95% {left: -$slide-width-desktop*19/20;}
-  100% {left: -$slide-width-desktop;}
+  100% {left: -$slide-width-desktop; display: none;}
 }
