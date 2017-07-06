@@ -32,6 +32,29 @@
             var template = document.querySelector(".r-slider-template");
             return document.importNode(template.content, true);
         }
+        function renderPrevSlide(parent, activeSlide) {
+            if (!parent){
+                if (inner) {
+                    parent = inner;
+                } else {
+                    console.log("error: can not append next slide, parent not found");
+                }
+            }
+            if (!activeSlide){
+                activeSlide = INITIAL_SLIDE;
+            }
+            if (activeSlide == 0) {
+                var index = slides.length - 1;
+            } else {
+                var index = activeSlide - 1;
+            }
+            var slide = slides[index];
+            slide.classList.add("r-slide--prev");
+            var active = parent.querySelector(".r-slide--active") || parent.querySelector(".r-slide--initial-active");
+            console.log(active);
+            parent.insertBefore(slide, active);
+            return false;
+        }
         function renderActiveSlide(parent, activeSlide) {
             if (!activeSlide){
                 activeSlide = INITIAL_SLIDE;
@@ -55,8 +78,12 @@
             if (!activeSlide){
                 activeSlide = INITIAL_SLIDE;
             }
-            var currentSlide = activeSlide + SLIDER_WIDTH;
-            var current = slides[currentSlide];
+            if (activeSlide == slides.length-1){
+                var index = 0;
+            } else {
+                var index = activeSlide + 1;
+            }
+            var current = slides[index];
             current.classList.add("r-slide--next");
             parent.appendChild(current);
             return true;
@@ -84,8 +111,13 @@
             next.classList.remove("r-slide--next");
             next.classList.add("r-slide--active");
 
-            activeSlide ? activeSlide++ : activeSlide = 1;
+            activeSlide ? activeSlide = (activeSlide + 1) % slides.length : activeSlide = 1;
             renderNextSlide(false, activeSlide);
+        };
+        this.slideToLeft = function () {
+            var active = document.querySelector(".r-slide--active") || document.querySelector(".r-slide--initial-active");
+            var next = document.querySelector(".r-slide--next");
+            var prev = document.querySelector(".r-slide--prev");
         };
         this.render = function(activeSlide){
             var wrapper = renderWrapper();
@@ -93,6 +125,7 @@
 
             renderActiveSlide(inner, activeSlide);
             renderNextSlide(inner, activeSlide);
+            renderPrevSlide(inner, activeSlide);
 
             return wrapper;
         }
