@@ -1,7 +1,8 @@
 .r-slider{
-  width: $slide-width-desktop;
+  width: $slide-width-desktop + 1rem;
   position: relative;
   margin: 20rem auto 0;
+  border: 4px solid black;
 }
 
 .r-slider--inner{
@@ -9,6 +10,11 @@
   position: relative;
   width: $slide-width-desktop;
   height: $slide-height-desktop;
-  border: 4px solid black;
   overflow: hidden;
+}
+
+.r-slider--inner--persons{
+  @extend .r-slider--inner;
+  width: $slide-width-desktop;
+  height: $slide--persons-height-desktop;
 }

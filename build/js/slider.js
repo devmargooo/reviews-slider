@@ -19,7 +19,7 @@
         }
     ];
 
-        function Slider() {
+    function Slider() {
         var slides = [];
         var activeSlide;
         var self = this;
@@ -143,6 +143,15 @@
             activeSlide ? activeSlide = (activeSlide - 1) % slides.length : activeSlide = slides.length - 1;
             renderPrevSlide(false, activeSlide);
         };
+        this.addChildrenSlider = function (width, alias) {
+            var wrapper = document.querySelector(".r-slider");
+            var childInner = document.createElement("ul");
+            childInner.classList.add("r-slider--inner--" + alias);
+
+            var sliders = wrapper.querySelectorAll(".r-slider--inner");
+            var insertingPoint = sliders[sliders.length - 1].nextElementSibling;
+            wrapper.insertBefore(childInner, insertingPoint);
+        };
         this.render = function(activeSlide){
             var wrapper = renderWrapper();
             inner = wrapper.querySelector(".r-slider--inner");
@@ -169,7 +178,7 @@
     var sliderBlock = slider.render();
     var bodyFirstChild = document.body.children[0];
     document.body.insertBefore(sliderBlock, bodyFirstChild);
-
+    slider.addChildrenSlider(5, 'persons');
 
     var arrowRight = document.querySelector(".arrow--right");
     arrowRight.onclick = slider.slideToRight;
