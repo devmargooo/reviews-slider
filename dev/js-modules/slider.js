@@ -36,8 +36,16 @@
             caption: 'Name5\nstatus5'
         }
     ];
-    var placeholdersMap = [];
-
+    var placeholders = [
+        'img/placeholders/1.png',
+        'img/placeholders/2.png',
+        'img/placeholders/3.png',
+        'img/placeholders/4.png'
+    ];
+    function renderRandomPersonPlaceholderSrc() {
+        var index = Math.floor(Math.random() * (placeholders.length));
+        return placeholders[index];
+    }
     function Slider() {
         var slides = [];
         var persons = []
@@ -191,7 +199,9 @@
         };
         this.renderPersons = function (activeSlide) {
             //renderActivePersonsSlides(personsInner, activeSlide);
-            console.log(persons);
+            for (var i = 0; i < persons.length; i++){
+                console.log(persons[i]);
+            }
         }
     }
     
@@ -213,12 +223,12 @@
         if (data.imgsrc){
                 imgsrc = data.imgsrc;
         } else {
-            console.log('PLACEHOLDER');
-            return;
+            imgsrc = renderRandomPersonPlaceholderSrc();
         }
 
         var img = document.createElement("img");
         img.setAttribute('src', imgsrc);
+        slide.appendChild(img);
 
         return slide;
 
