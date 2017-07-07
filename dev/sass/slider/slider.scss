@@ -15,6 +15,7 @@
 
 .r-slider--inner--persons{
   @extend .r-slider--inner;
-  width: $slide-width-desktop;
+  width:$slider--persons-width-desktop;
   height: $slide--persons-height-desktop;
+  margin: 0 auto;
 }

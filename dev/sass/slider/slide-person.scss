@@ -1,0 +1,9 @@
+.r-slide--persons{
+  position: absolute;
+  top: 0;
+  display: inline-block;
+  width: $slide-width-desktop;
+  height: $slide--persons-height-desktop;
+  padding: 2rem;
+  background: $c-bg;
+}
