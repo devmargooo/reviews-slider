@@ -187,9 +187,39 @@
         function renderActivePersonsSlides(parent, activeSlide) {
             if (!activeSlide) {
                 activeSlide = INITIAL_SLIDE;
+                var primary = persons[activeSlide];
+                primary.classList.add("r-slide--persons--primary--initial");
+
+                var secondaryLeftIndex = activeSlide - 1;
+                if (secondaryLeftIndex < 0) secondaryLeftIndex+=persons.length;
+
+                var secondaryLeft = persons[secondaryLeftIndex];
+                secondaryLeft.classList.add("r-slide--persons--secondary--left--initial");
+
+                var thirdLeftIndex = activeSlide - 2;
+                if (thirdLeftIndex < 0) thirdLeftIndex+=persons.length;
+
+                var thirdLeft = persons[thirdLeftIndex];
+                thirdLeft.classList.add("r-slide--persons--third--left--initial");
+
+                var secondaryRightIndex = activeSlide + 1;
+                if (secondaryRightIndex > persons.length) secondaryRightIndex-= persons.length;
+
+                var secondaryRight = persons[secondaryRightIndex];
+                secondaryRight.classList.add("r-slide--persons--secondary--right--initial");
+
+                var thirdRightIndex = activeSlide + 2;
+                if (thirdRightIndex > persons.length) thirdRightIndex-= persons.length;
+
+                var thirdRight = persons[thirdRightIndex];
+                thirdRight.classList.add("r-slide--persons--third--right--initial");
+
+                parent.appendChild(thirdLeft);
+                parent.appendChild(secondaryLeft);
+                parent.appendChild(primary);
+                parent.appendChild(secondaryRight);
+                parent.appendChild(thirdRight);
             }
-
-
         }
         this.render = function(activeSlide){
             var wrapper = renderWrapper();
@@ -202,10 +232,8 @@
             return wrapper;
         };
         this.renderPersons = function (activeSlide) {
-            //renderActivePersonsSlides(personsInner, activeSlide);
-            for (var i = 0; i < persons.length; i++){
-                console.log(persons[i]);
-            }
+            personsInner = document.querySelector(".r-slider--inner--persons");
+            renderActivePersonsSlides(personsInner, activeSlide);
         }
     }
     

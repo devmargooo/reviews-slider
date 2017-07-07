@@ -18,6 +18,7 @@
 
 .r-slide--persons--secondary{
   @extend .r-slide--persons;
+  top: 1rem;
   width: $slide--persons-size--secondary;
 }
 
@@ -36,11 +37,12 @@
 }
 
 .r-slide--persons--secondary--right--initial{
- @extend .r-slide--persons--secondary--right;
+  @extend .r-slide--persons--secondary--right;
 }
 
 .r-slide--persons--third{
   @extend .r-slide--persons;
+  top: 2rem;
   width: $slide--persons-size--third;
 }
 
@@ -58,7 +60,7 @@
   right: 0;
 }
 
-.r-slide--persons--third--right{
+.r-slide--persons--third--right--initial{
   @extend .r-slide--persons--third--right;
 }
 
