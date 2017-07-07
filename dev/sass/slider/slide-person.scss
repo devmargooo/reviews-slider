@@ -4,17 +4,27 @@
   display: inline-block;
   height: $slide--persons-height-desktop;
   background: $c-bg;
-  margin: 0 1rem;
 }
 
 .r-slide--persons--primary{
   @extend .r-slide--persons;
   width: $slide--persons-size--primary;
+  left: 22rem;
 }
 
 .r-slide--persons--secondary{
   @extend .r-slide--persons;
   width: $slide--persons-size--secondary;
+}
+
+.r-slide--persons--secondary--left{
+  @extend .r-slide--persons--secondary;
+  left: 10rem;
+}
+
+.r-slide--persons--secondary--right{
+  @extend .r-slide--persons--secondary;
+  right: 10rem;
 }
 
 .r-slide--persons--third{
@@ -116,4 +126,8 @@
   90% {width: 11.8rem; height: 11.8rem;}
   95% {width: 11.9rem; height: 11.9rem;}
   100% {width: 12rem; height: 12rem;}
+}
+
+@keyframes moveLeftFromPrimaryToSecondary {
+
 }
