@@ -18,6 +18,25 @@
             content: "Это отзыв номер 5"
         }
     ];
+    var persons = [
+        {
+            imgsrc: 'img/jolie.png',
+            caption: 'Елена Демченко\nlash-мастер'
+        },
+        {
+            caption: 'Name2\nstatus2'
+        },
+        {
+            caption: 'Name3\nstatus3'
+        },
+        {
+            caption: 'Name4\nstatus4'
+        },
+        {
+            caption: 'Name5\nstatus5'
+        }
+    ];
+    var placeholdersMap = [];
 
     function Slider() {
         var slides = [];
@@ -172,6 +191,21 @@
         inner.textContent = data.content;
         slide.appendChild(inner);
         return slide;
+    }
+    
+    function SlidePerson(data, priorityMode, sideMode) {
+        var slide = document.createElement("li");
+
+        if (priorityMode == "primary") {
+
+        } else if (priorityMode == "secondary"){
+
+        } else  if (priorityMode == "third"){
+
+        } else {
+            console.log("error: unknown persons slide priority mode");
+        }
+
     }
 
     var slider = new Slider();
