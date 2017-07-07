@@ -92,7 +92,7 @@ gulp.task('sass', function(){
 
 gulp.task('img', function () {
     gulp.src('dev/img-src/*.*')
-        .pipe(gulp.dest('build/img/'))
+        .pipe(gulp.dest('build/img'))
 });
 
 
