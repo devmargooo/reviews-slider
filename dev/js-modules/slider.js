@@ -185,7 +185,11 @@
             wrapper.insertBefore(childInner, insertingPoint);
         };
         function renderActivePersonsSlides(parent, activeSlide) {
-            console.log(persons);
+            if (!activeSlide) {
+                activeSlide = INITIAL_SLIDE;
+            }
+
+
         }
         this.render = function(activeSlide){
             var wrapper = renderWrapper();

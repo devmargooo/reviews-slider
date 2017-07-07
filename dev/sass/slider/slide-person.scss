@@ -12,6 +12,10 @@
   left: 22rem;
 }
 
+.r-slide--persons--primary--initial{
+  @extend .r-slide--persons--primary;
+}
+
 .r-slide--persons--secondary{
   @extend .r-slide--persons;
   width: $slide--persons-size--secondary;
@@ -22,9 +26,17 @@
   left: 10rem;
 }
 
+.r-slide--persons--secondary--left--initial{
+  @extend .r-slide--persons--secondary--left;
+}
+
 .r-slide--persons--secondary--right{
   @extend .r-slide--persons--secondary;
   right: 10rem;
+}
+
+.r-slide--persons--secondary--right--initial{
+ @extend .r-slide--persons--secondary--right;
 }
 
 .r-slide--persons--third{
@@ -37,9 +49,17 @@
   left: 0;
 }
 
+.r-slide--persons--third--left--initial{
+  @extend .r-slide--persons--third--left;
+}
+
 .r-slide--persons--third--right{
   @extend .r-slide--persons--third;
   right: 0;
+}
+
+.r-slide--persons--third--right{
+  @extend .r-slide--persons--third--right;
 }
 
 @keyframes growFromSecondaryToPrimary {
