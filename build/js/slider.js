@@ -18,7 +18,7 @@
             content: "Это отзыв номер 5"
         }
     ];
-    var persons = [
+    var personsData = [
         {
             imgsrc: 'img/jolie.png',
             caption: 'Елена Демченко\nlash-мастер'
@@ -40,12 +40,17 @@
 
     function Slider() {
         var slides = [];
+        var persons = []
         var activeSlide;
         var self = this;
-        var inner;
+        var inner, personsInner;
         for (var i = 0; i < data.length; i++){
             var slide = new Slide(data[i]);
             slides.push(slide);
+        }
+        for (var i = 0; i < personsData.length; i++){
+            var person = new SlidePerson(personsData[i]);
+            persons.push(person);
         }
         function renderWrapper() {
             var template = document.querySelector(".r-slider-template");
@@ -171,6 +176,9 @@
             var insertingPoint = sliders[sliders.length - 1].nextElementSibling;
             wrapper.insertBefore(childInner, insertingPoint);
         };
+        function renderActivePersonsSlides(parent, activeSlide) {
+            console.log(persons);
+        }
         this.render = function(activeSlide){
             var wrapper = renderWrapper();
             inner = wrapper.querySelector(".r-slider--inner");
@@ -180,6 +188,10 @@
             renderPrevSlide(inner, activeSlide);
 
             return wrapper;
+        };
+        this.renderPersons = function (activeSlide) {
+            //renderActivePersonsSlides(personsInner, activeSlide);
+            console.log(persons);
         }
     }
     
@@ -195,16 +207,20 @@
     
     function SlidePerson(data, priorityMode, sideMode) {
         var slide = document.createElement("li");
+        slide.classList.add("r-slide--persons");
+        var imgsrc;
 
-        if (priorityMode == "primary") {
-
-        } else if (priorityMode == "secondary"){
-
-        } else  if (priorityMode == "third"){
-
+        if (data.imgsrc){
+                imgsrc = data.imgsrc;
         } else {
-            console.log("error: unknown persons slide priority mode");
+            console.log('PLACEHOLDER');
+            return;
         }
+
+        var img = document.createElement("img");
+        img.setAttribute('src', imgsrc);
+
+        return slide;
 
     }
 
@@ -213,6 +229,7 @@
     var bodyFirstChild = document.body.children[0];
     document.body.insertBefore(sliderBlock, bodyFirstChild);
     slider.addChildrenSlider(5, 'persons');
+    slider.renderPersons();
 
     var arrowRight = document.querySelector(".arrow--right");
     arrowRight.onclick = slider.slideToRight;
