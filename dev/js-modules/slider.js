@@ -128,7 +128,7 @@
             var leftSlide = document.querySelector(".r-slide--persons--third--left") || document.querySelector(".r-slide--persons--third--left--initial");
             return (leftSlide == persons[nextObjIndex]);
         }
-        function cloneLeftPersonsSlide(parent, index) {
+        function cloneLeftPersonsSlide(parent, index) {//return original of left slide
             if (!parent){
                 if (personsInner) {
                     parent = personsInner;
@@ -140,7 +140,9 @@
             var clone = SlidePerson(persons[index]);
             clone.classList = leftSlide.classList;
             parent.insertBefore(clone, leftSlide.nextElementSibling);
+            return leftSlide;
         }
+
         function personsSlideToRight(parent, activeSlide) {
             if (!parent){
                 if (personsInner) {
@@ -155,8 +157,11 @@
 
             var nextObjIndex = activeSlide + PERSONS_SLIDER_OFFSET + 1;
             if (ifLeftPersonsSlideIsNextSlide(nextObjIndex)){
-                cloneLeftPersonsSlide(personsInner, nextObjIndex);
+                var nextslide = cloneLeftPersonsSlide(personsInner, nextObjIndex);
+                nextslide.classList = "r-slide--persons r-slide--persons--next--toleft";
+                parent.appendChild(nextslide);
             }
+
         }
         this.slideToRight = function(){
             var active = document.querySelector(".r-slide--active--toleft") || document.querySelector(".r-slide--active--toright") || document.querySelector(".r-slide--initial-active");

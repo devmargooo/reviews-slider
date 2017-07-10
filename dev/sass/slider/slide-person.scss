@@ -73,14 +73,25 @@
   @extend .r-slide--persons--third--right;
 }
 
-.r-slide--persons--prev{
+.r-slide--persons--aside{
   @extend .r-slide--persons;
-  left: $slide--persons-offset--aside;
-  animation: decreaseFromThirdToAside 0.8s;
   & img{
     width: $slide--persons-size--aside;
     height: $slide--persons-size--aside;
   }
+}
+
+.r-slide--persons--prev{
+  @extend .r-slide--persons;
+  left: $slide--persons-offset--aside;
+  animation: decreaseFromThirdToAside 0.8s;
+
+}
+
+.r-slide--persons.r-slide--persons--next--toleft{
+  @extend .r-slide--persons--aside;
+  //display: none;
+  left: $slide--persons-left--next;
 }
 
 @keyframes growFromSecondaryToPrimary {
