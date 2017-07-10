@@ -186,23 +186,47 @@
   5% {width: 6.1rem; height: 6.1rem;}
   10% {width: 6.2rem; height: 6.2rem;}
   15% {width: 6.3rem; height: 6.3rem;}
-  20% {width: 8.4rem; height: 8.4rem;}
-  25% {width: 8.5rem; height: 8.5rem;}
-  30% {width: 8.6rem; height: 8.6rem;}
-  35% {width: 8.7rem; height: 8.7rem;}
-  40% {width: 8.8rem; height: 8.8rem;}
-  45% {width: 8.9rem; height: 8.9rem;}
-  50% {width: 9rem; height: 9rem;}
-  55% {width: 9.1rem; height: 9.1rem;}
-  60% {width: 9.2rem; height: 9.2rem;}
-  65% {width: 9.3rem; height: 9.3rem;}
-  70% {width: 9.4rem; height: 9.4rem;}
-  75% {width: 9.5rem; height: 9.5rem;}
-  80% {width: 9.6rem; height: 9.6rem;}
-  85% {width: 9.7rem; height: 9.7rem;}
-  90% {width: 9.8rem; height: 9.8rem;}
-  95% {width: 9.9rem; height: 9.9rem;}
-  100% {width: 10rem; height: 10rem;}
+  20% {width: 6.4rem; height: 6.4rem;}
+  25% {width: 6.5rem; height: 6.5rem;}
+  30% {width: 6.6rem; height: 6.6rem;}
+  35% {width: 6.7rem; height: 6.7rem;}
+  40% {width: 6.8rem; height: 6.8rem;}
+  45% {width: 6.9rem; height: 6.9rem;}
+  50% {width: 7rem; height: 7rem;}
+  55% {width: 7.1rem; height: 7.1rem;}
+  60% {width: 7.2rem; height: 7.2rem;}
+  65% {width: 7.3rem; height: 7.3rem;}
+  70% {width: 7.4rem; height: 7.4rem;}
+  75% {width: 7.5rem; height: 7.5rem;}
+  80% {width: 7.6rem; height: 7.6rem;}
+  85% {width: 7.7rem; height: 7.7rem;}
+  90% {width: 7.8rem; height: 7.8rem;}
+  95% {width: 7.9rem; height: 7.9rem;}
+  100% {width: 8rem; height: 8rem;}
+}
+
+@keyframes decreaseFromThirdToAside{
+  0% {width: 8rem; height: 8rem;}
+  5% {width: 7.9rem; height: 7.9rem;}
+  10% {width: 7.8rem; height: 7.8rem;}
+  15% {width: 7.7rem; height: 7.7rem;}
+  20% {width: 7.6rem; height: 7.6rem;}
+  25% {width: 7.5rem; height: 7.5rem;}
+  30% {width: 7.4rem; height: 7.4rem;}
+  35% {width: 7.3rem; height: 7.3rem;}
+  40% {width: 7.2rem; height: 7.2rem;}
+  45% {width: 7.1rem; height: 7.1rem;}
+  50% {width: 7.0rem; height: 7.0rem;}
+  55% {width: 6.9rem; height: 6.9rem;}
+  60% {width: 6.8rem; height: 6.8rem;}
+  65% {width: 6.7rem; height: 6.7rem;}
+  70% {width: 6.6rem; height: 6.6rem;}
+  75% {width: 6.5rem; height: 6.5rem;}
+  80% {width: 6.4rem; height: 6.4rem;}
+  85% {width: 6.3rem; height: 6.3rem;}
+  90% {width: 6.2rem; height: 6.2rem;}
+  95% {width: 6.1rem; height: 6.1rem;}
+  100% {width: 6.0rem; height: 6.0rem;}
 }
 
 @keyframes moveLeftFromPrimaryToSecondary {
