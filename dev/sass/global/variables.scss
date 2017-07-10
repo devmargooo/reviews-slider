@@ -4,9 +4,14 @@ $slider--persons-width-desktop: 56rem;
 $slide--persons-height-desktop: 18rem;
 
 $slide--persons-size--primary: 12rem;
-$slide--persons-size--secondary: 10rem;
-$slide--persons-size--third: 8rem;
-$slide--persons-size--aside: 6rem;
+$slide--persons-size--secondary: $slide--persons-size--primary - 2rem;
+$slide--persons-size--third: $slide--persons-size--secondary - 2rem;
+$slide--persons-size--aside: $slide--persons-size--secondary - 2rem;
+
+$slide--persons-offset--primary: $slide--persons-size--secondary + 2rem + $slide--persons-size--third + 2rem;
+$slide--persons-offset--secondary: $slide--persons-size--aside + 2rem;
+$slide--persons-offset--third: 0;
+$slide--persons-offset--aside: -$slide--persons-size--aside -2rem;
 
 $c-fg: #f5f5f5;
 $c-bg: #ffffff;

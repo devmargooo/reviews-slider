@@ -1,6 +1,8 @@
 (function() {
     var INITIAL_SLIDE = 0;
     var SLIDER_WIDTH = 1;
+    var PERSONS_SLIDER_WIDTH = 5;
+    var PERSONS_SLIDER_OFFSET = 2;//offset between active slide and first left slide
     var data = [
         {
             content: "Это отзыв номер 1"
@@ -87,6 +89,7 @@
             var active = parent.querySelector(".r-slide--active--toleft") || parent.querySelector(".r-slide--active--toright") || parent.querySelector(".r-slide--initial-active");
             parent.insertBefore(slide, active);
         }
+        
         function renderActiveSlide(parent, activeSlide) {
             if (!activeSlide){
                 activeSlide = INITIAL_SLIDE;
@@ -121,6 +124,40 @@
             parent.appendChild(slide);
 
         }
+        function ifLeftPersonsSlideIsNextSlide(nextObjIndex) {
+            var leftSlide = document.querySelector(".r-slide--persons--third--left") || document.querySelector(".r-slide--persons--third--left--initial");
+            return (leftSlide == persons[nextObjIndex]);
+        }
+        function cloneLeftPersonsSlide(parent, index) {
+            if (!parent){
+                if (personsInner) {
+                    parent = personsInner;
+                } else {
+                    console.log("error: can not append next persons slide, parent not found");
+                }
+            }
+            var leftSlide = document.querySelector(".r-slide--persons--third--left") || document.querySelector(".r-slide--persons--third--left--initial");
+            var clone = SlidePerson(persons[index]);
+            clone.classList = leftSlide.classList;
+            parent.insertBefore(clone, leftSlide.nextElementSibling);
+        }
+        function personsSlideToRight(parent, activeSlide) {
+            if (!parent){
+                if (personsInner) {
+                    parent = personsInner;
+                } else {
+                    console.log("error: can not append next persons slide, parent not found");
+                }
+            }
+            if (!activeSlide){
+                activeSlide = INITIAL_SLIDE;
+            }
+
+            var nextObjIndex = activeSlide + PERSONS_SLIDER_OFFSET + 1;
+            if (ifLeftPersonsSlideIsNextSlide(nextObjIndex)){
+                cloneLeftPersonsSlide(personsInner, nextObjIndex);
+            }
+        }
         this.slideToRight = function(){
             var active = document.querySelector(".r-slide--active--toleft") || document.querySelector(".r-slide--active--toright") || document.querySelector(".r-slide--initial-active");
             var next = document.querySelector(".r-slide--next--toleft") || document.querySelector(".r-slide--next--toright");
@@ -147,6 +184,9 @@
 
             activeSlide ? activeSlide = (activeSlide + 1) % slides.length : activeSlide = 1;
             renderNextSlide(false, activeSlide);
+
+
+            personsSlideToRight(personsInner);
         };
         this.slideToLeft = function () {
             var active = document.querySelector(".r-slide--active--toleft") || document.querySelector(".r-slide--active--toright") || document.querySelector(".r-slide--initial-active");
