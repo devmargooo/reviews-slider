@@ -18,8 +18,11 @@
 
 .r-slide--persons--secondary{
   @extend .r-slide--persons;
-  top: 1rem;
   width: $slide--persons-size--secondary;
+  & img{
+    position: relative;
+    top: 1rem;
+  }
 }
 
 .r-slide--persons--secondary--left{
@@ -42,8 +45,11 @@
 
 .r-slide--persons--third{
   @extend .r-slide--persons;
-  top: 2rem;
   width: $slide--persons-size--third;
+  & img{
+    position: relative;
+    top: 2rem;
+  }
 }
 
 .r-slide--persons--third--left{
@@ -62,6 +68,10 @@
 
 .r-slide--persons--third--right--initial{
   @extend .r-slide--persons--third--right;
+}
+
+.r-slide--persons--prev{
+
 }
 
 @keyframes growFromSecondaryToPrimary {
