@@ -160,6 +160,9 @@
                 var nextslide = cloneLeftPersonsSlide(personsInner, nextObjIndex);
                 nextslide.classList = "r-slide--persons r-slide--persons--next--toleft";
                 parent.appendChild(nextslide);
+
+                var thirdLeft = document.querySelector(".r-slide--persons--third--left") || document.querySelector(".r-slide--persons--third--left--initial");
+                thirdLeft.classList = "r-slide--persons--prev";
             }
 
         }
@@ -219,9 +222,6 @@
 
             activeSlide ? activeSlide = (activeSlide - 1) % slides.length : activeSlide = slides.length - 1;
             renderPrevSlide(false, activeSlide);
-        };
-        this.personsSlideToRight = function () {
-            var secondaryLeft = document.querySelector(".r-slide--persons--secondary--left")||document.querySelector(".r-slide--persons--secondary--left--initial");
         };
         this.addChildrenSlider = function (width, alias) {
             var wrapper = document.querySelector(".r-slider");
