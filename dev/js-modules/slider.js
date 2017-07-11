@@ -163,6 +163,9 @@
 
                 var thirdLeft = document.querySelector(".r-slide--persons--third--left") || document.querySelector(".r-slide--persons--third--left--initial");
                 thirdLeft.classList = "r-slide--persons--prev";
+
+                var secondLeft = document.querySelector(".r-slide--persons--secondary--left") || document.querySelector(".r-slide--persons--secondary--left--initial");
+                secondLeft.classList;
             }
 
         }
@@ -295,7 +298,7 @@
         return slide;
     }
     
-    function SlidePerson(data, priorityMode, sideMode) {
+    function SlidePerson(data) {
         var slide = document.createElement("li");
         slide.classList.add("r-slide--persons");
         var imgsrc;

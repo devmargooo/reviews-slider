@@ -10,7 +10,7 @@
 
 .r-slide--persons--primary{
   @extend .r-slide--persons;
-  left: $slide--persons-offset--primary;
+  left: $slide--persons-left--primary;
   & img {
     width: $slide--persons-size--primary;
     height: $slide--persons-size--primary;
@@ -31,7 +31,7 @@
 
 .r-slide--persons--secondary--left{
   @extend .r-slide--persons--secondary;
-  left: $slide--persons-offset--secondary;
+  left: $slide--persons-left--secondary-left;
 }
 
 .r-slide--persons--secondary--left--initial{
@@ -40,7 +40,7 @@
 
 .r-slide--persons--secondary--right{
   @extend .r-slide--persons--secondary;
-  right: $slide--persons-offset--secondary;
+  left: $slide--persons-left--secondary-right;
 }
 
 .r-slide--persons--secondary--right--initial{
@@ -57,7 +57,7 @@
 
 .r-slide--persons--third--left{
   @extend .r-slide--persons--third;
-  left: $slide--persons-offset--third;
+  left:$slide--persons-left--third-left;
 }
 
 .r-slide--persons--third--left--initial{
@@ -66,7 +66,7 @@
 
 .r-slide--persons--third--right{
   @extend .r-slide--persons--third;
-  right: $slide--persons-offset--third;
+  left: $slide--persons-left--third-right;
 }
 
 .r-slide--persons--third--right--initial{
@@ -83,8 +83,11 @@
 
 .r-slide--persons--prev{
   @extend .r-slide--persons--aside;
-  left: $slide--persons-left--aside;
+  left: $slide--persons-left--prev;
   animation: moveLeftFromThirdToAside 0.8s;
+  & img{
+    animation: decreaseFromThirdToAside 0.8s;
+  }
 }
 
 .r-slide--persons.r-slide--persons--next--toleft{
@@ -238,24 +241,28 @@
 
 @keyframes moveLeftFromThirdToAside {
   0% {left:0;}
-  5% {left: $slide--persons-left--aside*1/20;}
-  10% {left: $slide--persons-left--aside*2/20;}
-  15% {left: $slide--persons-left--aside*3/20;}
-  20% {left: $slide--persons-left--aside*4/20;}
-  25% {left: $slide--persons-left--aside*5/20;}
-  30% {left: $slide--persons-left--aside*6/20;}
-  35% {left: $slide--persons-left--aside*7/20;}
-  40% {left: $slide--persons-left--aside*8/20;}
-  45% {left: $slide--persons-left--aside*9/20;}
-  50% {left: $slide--persons-left--aside*10/20;}
-  55% {left: $slide--persons-left--aside*11/20;}
-  60% {left: $slide--persons-left--aside*12/20;}
-  65% {left: $slide--persons-left--aside*13/20;}
-  70% {left: $slide--persons-left--aside*14/20;}
-  75% {left: $slide--persons-left--aside*15/20;}
-  80% {left: $slide--persons-left--aside*16/20;}
-  85% {left: $slide--persons-left--aside*17/20;}
-  90% {left: $slide--persons-left--aside*18/20;}
-  95% {left: $slide--persons-left--aside*19/20;}
-  100% {left: $slide--persons-left--aside;}
+  5% {left:$slide--persons-left--prev*1/20;}
+  10% {left:$slide--persons-left--prev*2/20;}
+  15% {left:$slide--persons-left--prev*3/20;}
+  20% {left:$slide--persons-left--prev*4/20;}
+  25% {left:$slide--persons-left--prev*5/20;}
+  30% {left:$slide--persons-left--prev*6/20;}
+  35% {left:$slide--persons-left--prev*7/20;}
+  40% {left:$slide--persons-left--prev*8/20;}
+  45% {left:$slide--persons-left--prev*9/20;}
+  50% {left:$slide--persons-left--prev*10/20;}
+  55% {left:$slide--persons-left--prev*11/20;}
+  60% {left:$slide--persons-left--prev*12/20;}
+  65% {left:$slide--persons-left--prev*13/20;}
+  70% {left:$slide--persons-left--prev*14/20;}
+  75% {left:$slide--persons-left--prev*15/20;}
+  80% {left:$slide--persons-left--prev*16/20;}
+  85% {left:$slide--persons-left--prev*17/20;}
+  90% {left:$slide--persons-left--prev*18/20;}
+  95% {left:$slide--persons-left--prev*19/20;}
+  100% {left:$slide--persons-left--prev;}
+}
+
+@keyframes moveLeftFromSecondaryToThird {
+  //0% {left: }
 }
