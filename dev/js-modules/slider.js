@@ -165,7 +165,7 @@
                 thirdLeft.classList = "r-slide--persons--prev";
 
                 var secondLeft = document.querySelector(".r-slide--persons--secondary--left") || document.querySelector(".r-slide--persons--secondary--left--initial");
-                secondLeft.classList;
+                secondLeft.classList = "r-slide--persons--third--left";
             }
 
         }
