@@ -183,14 +183,14 @@
                 var thirdLeft = document.querySelector(".r-slide--persons--third--left") || document.querySelector(".r-slide--persons--third--left--initial");
                 thirdLeft.classList = "r-slide--persons--prev";
 
-                var secondLeft = document.querySelector(".r-slide--persons--secondary--left") || document.querySelector(".r-slide--persons--secondary--left--initial");
+                var secondLeft = document.querySelector(".r-slide--persons--secondary--left") || document.querySelector(".r-slide--persons--secondary--left--toright") || document.querySelector(".r-slide--persons--secondary--left--initial");
                 secondLeft.classList = "r-slide--persons--third--left";
 
-                var primary = document.querySelector(".r-slide--persons--primary") || document.querySelector(".r-slide--persons--primary--initial");
-                primary.classList = "r-slide--persons--secondary--left";
+                var primary = document.querySelector(".r-slide--persons--primary") || document.querySelector(".r-slide--persons--primary--toright") || document.querySelector(".r-slide--persons--primary--initial");
+                primary.classList = "r-slide--persons--secondary--left--toright";
 
                 var secondaryRight =  document.querySelector(".r-slide--persons--secondary--right") || document.querySelector(".r-slide--persons--secondary--right--toright") || document.querySelector(".r-slide--persons--secondary--right--initial");
-                secondaryRight.classList = "r-slide--persons--primary";
+                secondaryRight.classList = "r-slide--persons--primary--toright";
 
                 var thirdRight = document.querySelector(".r-slide--persons--third--right")|| document.querySelector(".r-slide--persons--third--right--toright") || document.querySelector(".r-slide--persons--third--right--initial");
                 thirdRight.classList = "r-slide--persons--secondary--right--toright";
@@ -260,8 +260,11 @@
                 var secondRight = document.querySelector(".r-slide--persons--secondary--right")|| document.querySelector(".r-slide--persons--secondary--right--toright") || document.querySelector(".r-slide--persons--secondary--right--initial");
                 secondRight.classList = "r-slide--persons--third--right--toleft";
 
-                var primary = document.querySelector(".r-slide--persons--primary") || document.querySelector(".r-slide--persons--primary--initial");
+                var primary = document.querySelector(".r-slide--persons--primary") || document.querySelector(".r-slide--persons--primary-toright") || document.querySelector(".r-slide--persons--primary--initial");
                 primary.classList = "r-slide--persons--secondary--right--toleft";
+
+                var secondLeft = document.querySelector(".r-slide--persons--secondary--left") || document.querySelector(".r-slide--persons--secondary--left--toright") || document.querySelector(".r-slide--persons--secondary--left--initial");
+                secondLeft.classList = "r-slide--persons--primary--toleft";
             }
         }
         
