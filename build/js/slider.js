@@ -189,11 +189,11 @@
                 var primary = document.querySelector(".r-slide--persons--primary") || document.querySelector(".r-slide--persons--primary--initial");
                 primary.classList = "r-slide--persons--secondary--left";
 
-                var secondaryRight =  document.querySelector(".r-slide--persons--secondary--right") || document.querySelector(".r-slide--persons--secondary--right--initial");
+                var secondaryRight =  document.querySelector(".r-slide--persons--secondary--right") || document.querySelector(".r-slide--persons--secondary--right--toright") || document.querySelector(".r-slide--persons--secondary--right--initial");
                 secondaryRight.classList = "r-slide--persons--primary";
 
                 var thirdRight = document.querySelector(".r-slide--persons--third--right")|| document.querySelector(".r-slide--persons--third--right--toright") || document.querySelector(".r-slide--persons--third--right--initial");
-                thirdRight.classList = "r-slide--persons--secondary--right";
+                thirdRight.classList = "r-slide--persons--secondary--right--toright";
 
                 nextslide.classList = "r-slide--persons--third--right--toright";
 
@@ -257,8 +257,11 @@
                 var thirdRight = document.querySelector(".r-slide--persons--third--right") || document.querySelector(".r-slide--persons--third--right--toright") || document.querySelector(".r-slide--persons--third--right--initial");
                 thirdRight.classList = "r-slide--persons r-slide--persons--next";
 
-                var secondRight = document.querySelector(".r-slide--persons--secondary--right") || document.querySelector(".r-slide--persons--secondary--right--initial");
+                var secondRight = document.querySelector(".r-slide--persons--secondary--right")|| document.querySelector(".r-slide--persons--secondary--right--toright") || document.querySelector(".r-slide--persons--secondary--right--initial");
                 secondRight.classList = "r-slide--persons--third--right--toleft";
+
+                var primary = document.querySelector(".r-slide--persons--primary") || document.querySelector(".r-slide--persons--primary--initial");
+                primary.classList = "r-slide--persons--secondary--right--toleft";
             }
         }
         
