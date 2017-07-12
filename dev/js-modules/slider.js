@@ -172,6 +172,9 @@
 
                 var secondaryRight =  document.querySelector(".r-slide--persons--secondary--right") || document.querySelector(".r-slide--persons--secondary--right--initial");
                 secondaryRight.classList = "r-slide--persons--primary";
+
+                var thirdRight = document.querySelector(".r-slide--persons--third--right") || document.querySelector(".r-slide--persons--third--right--initial");
+                thirdRight.classList = "r-slide--persons--secondary--right";
             }
 
         }
