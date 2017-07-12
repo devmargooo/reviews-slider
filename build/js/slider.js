@@ -166,6 +166,12 @@
 
                 var secondLeft = document.querySelector(".r-slide--persons--secondary--left") || document.querySelector(".r-slide--persons--secondary--left--initial");
                 secondLeft.classList = "r-slide--persons--third--left";
+
+                var primary = document.querySelector(".r-slide--persons--primary") || document.querySelector(".r-slide--persons--primary--initial");
+                primary.classList = "r-slide--persons--secondary--left";
+
+                var secondaryRight =  document.querySelector(".r-slide--persons--secondary--right") || document.querySelector(".r-slide--persons--secondary--right--initial");
+                secondaryRight.classList = "r-slide--persons--primary";
             }
 
         }

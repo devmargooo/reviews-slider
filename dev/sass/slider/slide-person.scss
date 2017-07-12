@@ -19,6 +19,10 @@
 
 .r-slide--persons--primary--initial{
   @extend .r-slide--persons--primary;
+  animation: none;
+  & img{
+    animation: none;
+  }
 }
 
 .r-slide--persons--secondary{
@@ -32,10 +36,18 @@
 .r-slide--persons--secondary--left{
   @extend .r-slide--persons--secondary;
   left: $slide--persons-left--secondary-left;
+  animation: moveLeftFromPrimaryToSecondary 0.8s;
+  & img {
+    animation: decreaseFromPrimaryToSecondary 0.8s;
+  }
 }
 
 .r-slide--persons--secondary--left--initial{
   @extend .r-slide--persons--secondary--left;
+  animation: none;
+  & img{
+    animation: none;
+  }
 }
 
 .r-slide--persons--secondary--right{
@@ -294,3 +306,28 @@
   95% {left: $slide--persons-left--secondary-left*1/20;}
   100% {left: 0;}
 }
+
+@keyframes moveLeftFromPrimaryToSecondary {
+  0% {left: $slide--persons-left--primary;}
+  5% {left: $slide--persons-left--secondary-left + ($slide--persons-left--primary - $slide--persons-left--secondary-left)*19/20;}
+  10% {left: $slide--persons-left--secondary-left + ($slide--persons-left--primary - $slide--persons-left--secondary-left)*18/20;}
+  15% {left: $slide--persons-left--secondary-left + ($slide--persons-left--primary - $slide--persons-left--secondary-left)*17/20;}
+  20% {left: $slide--persons-left--secondary-left + ($slide--persons-left--primary - $slide--persons-left--secondary-left)*16/20;}
+  25% {left: $slide--persons-left--secondary-left + ($slide--persons-left--primary - $slide--persons-left--secondary-left)*15/20;}
+  30% {left: $slide--persons-left--secondary-left + ($slide--persons-left--primary - $slide--persons-left--secondary-left)*14/20;}
+  35% {left: $slide--persons-left--secondary-left + ($slide--persons-left--primary - $slide--persons-left--secondary-left)*13/20;}
+  40% {left: $slide--persons-left--secondary-left + ($slide--persons-left--primary - $slide--persons-left--secondary-left)*12/20;}
+  45% {left: $slide--persons-left--secondary-left + ($slide--persons-left--primary - $slide--persons-left--secondary-left)*11/20;}
+  50% {left: $slide--persons-left--secondary-left + ($slide--persons-left--primary - $slide--persons-left--secondary-left)*10/20;}
+  55% {left: $slide--persons-left--secondary-left + ($slide--persons-left--primary - $slide--persons-left--secondary-left)*9/20;}
+  60% {left: $slide--persons-left--secondary-left + ($slide--persons-left--primary - $slide--persons-left--secondary-left)*8/20;}
+  65% {left: $slide--persons-left--secondary-left + ($slide--persons-left--primary - $slide--persons-left--secondary-left)*7/20;}
+  70% {left: $slide--persons-left--secondary-left + ($slide--persons-left--primary - $slide--persons-left--secondary-left)*6/20;}
+  75% {left: $slide--persons-left--secondary-left + ($slide--persons-left--primary - $slide--persons-left--secondary-left)*5/20;}
+  80% {left: $slide--persons-left--secondary-left + ($slide--persons-left--primary - $slide--persons-left--secondary-left)*4/20;}
+  85% {left: $slide--persons-left--secondary-left + ($slide--persons-left--primary - $slide--persons-left--secondary-left)*3/20;}
+  90% {left: $slide--persons-left--secondary-left + ($slide--persons-left--primary - $slide--persons-left--secondary-left)*2/20;}
+  95% {left: $slide--persons-left--secondary-left + ($slide--persons-left--primary - $slide--persons-left--secondary-left)*1/20;}
+  100% {left: $slide--persons-left--secondary-left;}
+}
+
