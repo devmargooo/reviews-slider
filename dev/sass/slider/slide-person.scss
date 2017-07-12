@@ -131,7 +131,10 @@
 
 .r-slide--persons--third--left--toleft{
   @extend .r-slide--persons--third--left;
-
+  animation: moveRightFromAsideToThird $animation-speed;
+  & img{
+    animation: growFromAsideToThird $animation-speed;
+  }
 }
 
 .r-slide--persons--third--left--initial{
@@ -623,3 +626,26 @@
   100% {left: $slide--persons-left--secondary-left;}
 }
 
+@keyframes moveRightFromAsideToThird {
+  0% {left:$slide--persons-left--prev;}
+  5% {left:$slide--persons-left--prev*19/20;}
+  10% {left:$slide--persons-left--prev*18/20;}
+  15% {left:$slide--persons-left--prev*17/20;}
+  20% {left:$slide--persons-left--prev*16/20;}
+  25% {left:$slide--persons-left--prev*15/20;}
+  30% {left:$slide--persons-left--prev*14/20;}
+  35% {left:$slide--persons-left--prev*13/20;}
+  40% {left:$slide--persons-left--prev*12/20;}
+  45% {left:$slide--persons-left--prev*11/20;}
+  50% {left:$slide--persons-left--prev*10/20;}
+  55% {left:$slide--persons-left--prev*9/20;}
+  60% {left:$slide--persons-left--prev*8/20;}
+  65% {left:$slide--persons-left--prev*7/20;}
+  70% {left:$slide--persons-left--prev*6/20;}
+  75% {left:$slide--persons-left--prev*5/20;}
+  80% {left:$slide--persons-left--prev*4/20;}
+  85% {left:$slide--persons-left--prev*3/20;}
+  90% {left:$slide--persons-left--prev*2/20;}
+  95% {left:$slide--persons-left--prev*1/20;}
+  100% {left:0;}
+}
