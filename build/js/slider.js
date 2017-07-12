@@ -129,6 +129,10 @@
             var leftSlide = document.querySelector(".r-slide--persons--third--left") || document.querySelector(".r-slide--persons--third--left--initial");
             return (leftSlide == persons[nextObjIndex]);
         }
+        function ifRightPersonsSlideIsPrevSlide(prevObjIndex) {
+            var rightSlide = document.querySelector(".r-slide--persons--third--right") || document.querySelector(".r-slide--persons--third--right--toright") || document.querySelector(".r-slide--persons--third--right--initial");
+            return (rightSlide == persons[prevObjIndex]);
+        }
         function cloneLeftPersonsSlide(parent, index) {//return original of left slide
             if (!parent){
                 if (personsInner) {
@@ -143,6 +147,20 @@
             parent.insertBefore(clone, leftSlide.nextElementSibling);
             return leftSlide;
         }
+        function cloneRightPersonsSlide(parent, index) {//return original of right slide
+            if (!parent){
+                if (personsInner) {
+                    parent = personsInner;
+                } else {
+                    console.log("error: can not append prev persons slide, parent not found");
+                }
+            }
+            var rightSlide = document.querySelector(".r-slide--persons--third--right") || document.querySelector(".r-slide--persons--third--right--toright") || document.querySelector(".r-slide--persons--third--right--initial");
+            var clone = SlidePerson(persons[index]);
+            clone.classList = rightSlide.classList;
+            parent.appendChild(clone);
+            return rightSlide;
+        }
 
         function personsSlideToRight(parent, activeSlide) {
             if (!parent){
@@ -156,12 +174,10 @@
                 activeSlide = INITIAL_SLIDE;
             }
 
-            console.log(activeSlide);
-
             var nextObjIndex = (activeSlide + PERSONS_SLIDER_OFFSET + 1) % PERSONS_SLIDER_WIDTH;
             if (ifLeftPersonsSlideIsNextSlide(nextObjIndex)){
                 var nextslide = cloneLeftPersonsSlide(personsInner, nextObjIndex);
-                nextslide.classList = "r-slide--persons r-slide--persons--next--toleft";
+                nextslide.classList = "r-slide--persons r-slide--persons--next--initial";
                 parent.appendChild(nextslide);
 
                 var thirdLeft = document.querySelector(".r-slide--persons--third--left") || document.querySelector(".r-slide--persons--third--left--initial");
@@ -176,10 +192,10 @@
                 var secondaryRight =  document.querySelector(".r-slide--persons--secondary--right") || document.querySelector(".r-slide--persons--secondary--right--initial");
                 secondaryRight.classList = "r-slide--persons--primary";
 
-                var thirdRight = document.querySelector(".r-slide--persons--third--right") || document.querySelector(".r-slide--persons--third--right--initial");
+                var thirdRight = document.querySelector(".r-slide--persons--third--right")|| document.querySelector(".r-slide--persons--third--right--toright") || document.querySelector(".r-slide--persons--third--right--initial");
                 thirdRight.classList = "r-slide--persons--secondary--right";
 
-                nextslide.classList = "r-slide--persons--third--right";
+                nextslide.classList = "r-slide--persons--third--right--toright";
 
                 var timer = setTimeout(function () {
                     var prev = document.querySelector(".r-slide--persons--prev");
@@ -218,6 +234,34 @@
             renderNextSlide(false, activeSlide);
 
         };
+        
+        function personsSlideToLeft(parent, activeSlide) {
+
+            if (!parent){
+                if (personsInner) {
+                    parent = personsInner;
+                } else {
+                    console.log("error: can not append next persons slide, parent not found");
+                }
+            }
+            if (!activeSlide){
+                activeSlide = INITIAL_SLIDE;
+            }
+            var prevObjIndex = activeSlide - PERSONS_SLIDER_OFFSET - 1;
+            if (prevObjIndex < 0) prevObjIndex += PERSONS_SLIDER_WIDTH;
+            if (ifRightPersonsSlideIsPrevSlide(prevObjIndex)){
+                var prevslide = cloneRightPersonsSlide(personsInner, prevObjIndex);
+                prevslide.classList = "r-slide--persons r-slide--persons--prev--initial";
+                parent.appendChild(prevslide);
+
+                var thirdRight = document.querySelector(".r-slide--persons--third--right") || document.querySelector(".r-slide--persons--third--right--toright") || document.querySelector(".r-slide--persons--third--right--initial");
+                thirdRight.classList = "r-slide--persons r-slide--persons--next";
+
+                var secondRight = document.querySelector(".r-slide--persons--secondary--right") || document.querySelector(".r-slide--persons--secondary--right--initial");
+                secondRight.classList = "r-slide--persons--third--right--toleft";
+            }
+        }
+        
         this.slideToLeft = function () {
             var active = document.querySelector(".r-slide--active--toleft") || document.querySelector(".r-slide--active--toright") || document.querySelector(".r-slide--initial-active");
             var next = document.querySelector(".r-slide--next--toleft") || document.querySelector(".r-slide--next--toright") ;
@@ -242,6 +286,7 @@
             prev.classList.remove("r-slide--prev");
             prev.classList.add("r-slide--active--toright");
 
+            personsSlideToLeft(personsInner, activeSlide);
             activeSlide ? activeSlide = (activeSlide - 1) % slides.length : activeSlide = slides.length - 1;
             renderPrevSlide(false, activeSlide);
         };
