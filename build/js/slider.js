@@ -156,7 +156,9 @@
                 activeSlide = INITIAL_SLIDE;
             }
 
-            var nextObjIndex = activeSlide + PERSONS_SLIDER_OFFSET + 1;
+            console.log(activeSlide);
+
+            var nextObjIndex = (activeSlide + PERSONS_SLIDER_OFFSET + 1) % PERSONS_SLIDER_WIDTH;
             if (ifLeftPersonsSlideIsNextSlide(nextObjIndex)){
                 var nextslide = cloneLeftPersonsSlide(personsInner, nextObjIndex);
                 nextslide.classList = "r-slide--persons r-slide--persons--next--toleft";
@@ -210,11 +212,11 @@
             next.classList.remove("r-slide--next--toleft") || next.classList.remove("r-slide--next--toright");
             next.classList.add("r-slide--active--toleft");
 
+            personsSlideToRight(personsInner, activeSlide);
+
             activeSlide ? activeSlide = (activeSlide + 1) % slides.length : activeSlide = 1;
             renderNextSlide(false, activeSlide);
 
-
-            personsSlideToRight(personsInner);
         };
         this.slideToLeft = function () {
             var active = document.querySelector(".r-slide--active--toleft") || document.querySelector(".r-slide--active--toright") || document.querySelector(".r-slide--initial-active");

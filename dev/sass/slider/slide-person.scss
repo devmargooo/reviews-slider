@@ -11,11 +11,11 @@
 .r-slide--persons--primary{
   @extend .r-slide--persons;
   left: $slide--persons-left--primary;
-  animation: moveLeftFromSecondaryToPrimary 0.8s;
+  animation: moveLeftFromSecondaryToPrimary $animation-speed;
   & img {
     width: $slide--persons-size--primary;
     height: $slide--persons-size--primary;
-    animation: growFromSecondaryToPrimary 0.8s;
+    animation: growFromSecondaryToPrimary $animation-speed;
   }
 }
 
@@ -38,9 +38,9 @@
 .r-slide--persons--secondary--left{
   @extend .r-slide--persons--secondary;
   left: $slide--persons-left--secondary-left;
-  animation: moveLeftFromPrimaryToSecondary 0.8s;
+  animation: moveLeftFromPrimaryToSecondary $animation-speed;
   & img {
-    animation: decreaseFromPrimaryToSecondary 0.8s;
+    animation: decreaseFromPrimaryToSecondary $animation-speed;
   }
 }
 
@@ -55,9 +55,9 @@
 .r-slide--persons--secondary--right{
   @extend .r-slide--persons--secondary;
   left: $slide--persons-left--secondary-right;
-  animation: moveLeftFromThirdToSecondary 0.8s;
+  animation: moveLeftFromThirdToSecondary $animation-speed;
   & img{
-    animation: growFromThirdToSecondary 0.8s;
+    animation: growFromThirdToSecondary $animation-speed;
   }
 }
 
@@ -80,9 +80,9 @@
 .r-slide--persons--third--left{
   @extend .r-slide--persons--third;
   left:$slide--persons-left--third-left;
-  animation: moveLeftFromSecondaryToThird 0.8s;
+  animation: moveLeftFromSecondaryToThird $animation-speed;
   & img{
-    animation: decreaseFromSecondaryToThird 0.8s;
+    animation: decreaseFromSecondaryToThird $animation-speed;
   }
 }
 
@@ -97,9 +97,9 @@
 .r-slide--persons--third--right{
   @extend .r-slide--persons--third;
   left: $slide--persons-left--third-right;
-  animation: moveFromNextToThird 0.8s;
+  animation: moveFromNextToThird $animation-speed;
   & img{
-    animation: growFromAsideToThird 0.8s;
+    animation: growFromAsideToThird $animation-speed;
   }
 }
 
@@ -122,9 +122,9 @@
 .r-slide--persons--prev{
   @extend .r-slide--persons--aside;
   left: $slide--persons-left--prev;
-  animation: moveLeftFromThirdToAside 0.8s;
+  animation: moveLeftFromThirdToAside $animation-speed;
   & img{
-    animation: decreaseFromThirdToAside 0.8s;
+    animation: decreaseFromThirdToAside $animation-speed;
   }
 }
 

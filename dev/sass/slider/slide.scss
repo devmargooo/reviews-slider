@@ -15,7 +15,7 @@
 
 .r-slide--prev{
   left: -$slide-width-desktop;
-  animation: disappearToLeft 0.8s;
+  animation: disappearToLeft $animation-speed;
 }
 
 .r-slide--initial-active{
@@ -24,12 +24,12 @@
 
 .r-slide.r-slide--active--toleft{
   @extend .r-slide--initial-active;
-  animation: appearToLeft 0.8s;
+  animation: appearToLeft $animation-speed;
 }
 
 .r-slide.r-slide--active--toright{
   @extend .r-slide--initial-active;
-  animation: appearToRight 0.8s;
+  animation: appearToRight $animation-speed;
 }
 
 .r-slide.r-slide--next--toleft{
@@ -39,7 +39,7 @@
 
 .r-slide.r-slide--next--toright{
   left: $slide-width-desktop;
-  animation: disappearToRight 0.8s;;
+  animation: disappearToRight $animation-speed;
 }
 
 @keyframes appearToLeft {
