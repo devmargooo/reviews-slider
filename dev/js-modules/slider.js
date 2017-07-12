@@ -3,6 +3,7 @@
     var SLIDER_WIDTH = 1;
     var PERSONS_SLIDER_WIDTH = 5;
     var PERSONS_SLIDER_OFFSET = 2;//offset between active slide and first left slide
+    var ANIMATION_SPEED = 800;
     var data = [
         {
             content: "Это отзыв номер 1"
@@ -175,6 +176,13 @@
 
                 var thirdRight = document.querySelector(".r-slide--persons--third--right") || document.querySelector(".r-slide--persons--third--right--initial");
                 thirdRight.classList = "r-slide--persons--secondary--right";
+
+                nextslide.classList = "r-slide--persons--third--right";
+
+                var timer = setTimeout(function () {
+                    var prev = document.querySelector(".r-slide--persons--prev");
+                    parent.removeChild(prev);
+                }, ANIMATION_SPEED)
             }
 
         }

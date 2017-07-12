@@ -97,10 +97,18 @@
 .r-slide--persons--third--right{
   @extend .r-slide--persons--third;
   left: $slide--persons-left--third-right;
+  animation: moveFromNextToThird 0.8s;
+  & img{
+    animation: growFromAsideToThird 0.8s;
+  }
 }
 
 .r-slide--persons--third--right--initial{
   @extend .r-slide--persons--third--right;
+  animation: none;
+  & img{
+    animation: none;
+  }
 }
 
 .r-slide--persons--aside{
@@ -387,4 +395,28 @@
   90% {left: $slide--persons-left--secondary-right + ($slide--persons-left--third-right - $slide--persons-left--secondary-right)*2/20;}
   95% {left: $slide--persons-left--secondary-right + ($slide--persons-left--third-right - $slide--persons-left--secondary-right)*1/20;}
   100% {left: $slide--persons-left--secondary-right;}
+}
+
+@keyframes moveFromNextToThird {
+  0% {left: $slide--persons-left--next;}
+  5% {left: $slide--persons-left--third-right + ($slide--persons-left--next - $slide--persons-left--third-right)*19/20;}
+  10% {left: $slide--persons-left--third-right + ($slide--persons-left--next - $slide--persons-left--third-right)*18/20;}
+  15% {left: $slide--persons-left--third-right + ($slide--persons-left--next - $slide--persons-left--third-right)*17/20;}
+  20% {left: $slide--persons-left--third-right + ($slide--persons-left--next - $slide--persons-left--third-right)*16/20;}
+  25% {left: $slide--persons-left--third-right + ($slide--persons-left--next - $slide--persons-left--third-right)*15/20;}
+  30% {left: $slide--persons-left--third-right + ($slide--persons-left--next - $slide--persons-left--third-right)*14/20;}
+  35% {left: $slide--persons-left--third-right + ($slide--persons-left--next - $slide--persons-left--third-right)*13/20;}
+  40% {left: $slide--persons-left--third-right + ($slide--persons-left--next - $slide--persons-left--third-right)*12/20;}
+  45% {left: $slide--persons-left--third-right + ($slide--persons-left--next - $slide--persons-left--third-right)*11/20;}
+  50% {left: $slide--persons-left--third-right + ($slide--persons-left--next - $slide--persons-left--third-right)*10/20;}
+  55% {left: $slide--persons-left--third-right + ($slide--persons-left--next - $slide--persons-left--third-right)*9/20;}
+  60% {left: $slide--persons-left--third-right + ($slide--persons-left--next - $slide--persons-left--third-right)*8/20;}
+  65% {left: $slide--persons-left--third-right + ($slide--persons-left--next - $slide--persons-left--third-right)*7/20;}
+  70% {left: $slide--persons-left--third-right + ($slide--persons-left--next - $slide--persons-left--third-right)*6/20;}
+  75% {left: $slide--persons-left--third-right + ($slide--persons-left--next - $slide--persons-left--third-right)*5/20;}
+  80% {left: $slide--persons-left--third-right + ($slide--persons-left--next - $slide--persons-left--third-right)*4/20;}
+  85% {left: $slide--persons-left--third-right + ($slide--persons-left--next - $slide--persons-left--third-right)*3/20;}
+  90% {left: $slide--persons-left--third-right + ($slide--persons-left--next - $slide--persons-left--third-right)*2/20;}
+  95% {left: $slide--persons-left--third-right + ($slide--persons-left--next - $slide--persons-left--third-right)*1/20;}
+  100% {left: $slide--persons-left--third-right;}
 }
