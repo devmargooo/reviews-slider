@@ -126,7 +126,7 @@
 
         }
         function ifLeftPersonsSlideIsNextSlide(nextObjIndex) {
-            var leftSlide = document.querySelector(".r-slide--persons--third--left") || document.querySelector(".r-slide--persons--third--left--initial");
+            var leftSlide = document.querySelector(".r-slide--persons--third--left")|| document.querySelector(".r-slide--persons--third--left--toright") || document.querySelector(".r-slide--persons--third--left--initial");
             return (leftSlide == persons[nextObjIndex]);
         }
         function ifRightPersonsSlideIsPrevSlide(prevObjIndex) {
@@ -141,7 +141,7 @@
                     console.log("error: can not append next persons slide, parent not found");
                 }
             }
-            var leftSlide = document.querySelector(".r-slide--persons--third--left") || document.querySelector(".r-slide--persons--third--left--initial");
+            var leftSlide = document.querySelector(".r-slide--persons--third--left") || document.querySelector(".r-slide--persons--third--left--toright") || document.querySelector(".r-slide--persons--third--left--initial");
             var clone = SlidePerson(persons[index]);
             clone.classList = leftSlide.classList;
             parent.insertBefore(clone, leftSlide.nextElementSibling);
@@ -180,11 +180,11 @@
                 nextslide.classList = "r-slide--persons r-slide--persons--next--initial";
                 parent.appendChild(nextslide);
 
-                var thirdLeft = document.querySelector(".r-slide--persons--third--left") || document.querySelector(".r-slide--persons--third--left--initial");
+                var thirdLeft = document.querySelector(".r-slide--persons--third--left")|| document.querySelector(".r-slide--persons--third--left--toright") || document.querySelector(".r-slide--persons--third--left--initial");
                 thirdLeft.classList = "r-slide--persons--prev";
 
                 var secondLeft = document.querySelector(".r-slide--persons--secondary--left") || document.querySelector(".r-slide--persons--secondary--left--toright") || document.querySelector(".r-slide--persons--secondary--left--initial");
-                secondLeft.classList = "r-slide--persons--third--left";
+                secondLeft.classList = "r-slide--persons--third--left--toright";
 
                 var primary = document.querySelector(".r-slide--persons--primary") || document.querySelector(".r-slide--persons--primary--toright") || document.querySelector(".r-slide--persons--primary--initial");
                 primary.classList = "r-slide--persons--secondary--left--toright";
@@ -265,6 +265,9 @@
 
                 var secondLeft = document.querySelector(".r-slide--persons--secondary--left") || document.querySelector(".r-slide--persons--secondary--left--toright") || document.querySelector(".r-slide--persons--secondary--left--initial");
                 secondLeft.classList = "r-slide--persons--primary--toleft";
+
+                var thirdLeft = document.querySelector(".r-slide--persons--third--left")|| document.querySelector(".r-slide--persons--third--left--toright") || document.querySelector(".r-slide--persons--third--left--initial");
+                thirdLeft.classList = "r-slide--persons--secondary--left--toleft";
             }
         }
         
